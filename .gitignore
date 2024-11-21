@@ -1,4 +1,8 @@
-.env
+# Different environments
+.env           
+.env.development
+.env.staging
+.env.production
 
 # Logs
 logs

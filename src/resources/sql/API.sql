@@ -1,0 +1,7 @@
+SHOW databases;
+
+CREATE DATABASE API COMMENT 'API Gateway';
+
+USE API;
+
+SHOW tables;
