@@ -1,0 +1,12 @@
+<!-- register.hbs -->
+<h1>Admin / Register</h1>
+<h2>API Gateway &dash; Version 1.0</h2>
+<a href="/">Root</a>
+<a href="/v1">Homepage</a>
+<a href="/cc/signin">Signin</a>
+<form action="/cc/register" method="post">
+    <label for="myUsername">Username&colon;<input type="text" name="username" autocomplete="username" id="myUsername" required="required" /></label>
+    <label for="myEmail">Email address&colon;<input type="email" name="email" autocomplete="email" id="myEmail" required="required" /></label>
+    <label for="myPassword">Password&colon;<input type="password" name="password" autocomplete="current-password" id="myPassword" required="required" /></label>
+    <input type="submit" value="Register" />
+</form>

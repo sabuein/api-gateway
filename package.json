@@ -4,7 +4,8 @@
   "description": "A collection of data",
   "main": "./src/server.js",
   "scripts": {
-    "start": "node --watch-path=./src ./src/server.mjs",
+    "start": "node --watch-path=./src/core ./src/server.mjs",
+    "doc": "./node_modules/.bin/jsdoc ./src -c ./package-docs.json -r --destination ./docs",
     "testX": "node --test --watch",
     "test": "concurrently --kill-others-on-fail --prefix none npm:test:*",
     "test:sw": "node --import ./test/setup.sw.mjs --test './src/sw/**/*.spec.*'",
@@ -29,9 +30,13 @@
   "dependencies": {
     "apicache": "^1.6.3",
     "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
     "crypto": "^1.0.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "express-handlebars": "^8.0.1",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.0",
     "http-proxy-middleware": "^3.0.3",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
@@ -39,7 +44,8 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "concurrently": "^9.1.0"
+    "concurrently": "^9.1.0",
+    "jsdoc": "^4.0.4"
   },
   "type": "module"
 }

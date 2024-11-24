@@ -1,5 +1,8 @@
 # api-gateway
 
+Frontend as a Progressive Web App (PWA) (HTML, CSS, JavaScript)
+Backend with NodeJS, MariaDB, and Express (JavaScript, SQL)
+
 ### Always Separate Concerns:
 - Routes define endpoints.
 - Controllers contain business logic.
