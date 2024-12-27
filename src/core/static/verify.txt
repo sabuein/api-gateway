@@ -2,7 +2,7 @@ Hello,
 
 Follow this link to verify your email address.
 
-https://boxy-svg.com/__/auth/action?mode=verifyEmail&oobCode=zS01znXH5UeMy4nc-EhfecbPSZfDU63eevpHb2Nnu9wAAAGT26oLDA&apiKey=AIzaSyDJH9MIWHDI4zhbSK9r19VKSTm-lyu3vZw&lang=en
+https://boxy-svg.com/__/auth/action?mode=verifyEmail&oobCode=zS01znXH5UeMy4nc-EhfecbPSZfDU63eevpHb2Nnu9wAAAGT26oLDA&apiKey=XXX&lang=en
 
 If you didn’t ask to verify this address, you can ignore this email.
 
