@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="https://app.abuein.com/" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#181c25" />
+    <script type="module" src="assets/js/app.js"></script>
+    <link rel="manifest" href="app.webmanifest" crossorigin="use-credentials" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link type="text/css" rel="stylesheet" href="assets/css/default.css" />
+    <title>Sign up &dash; AbuEin Web Portal</title>
+</head>
+
+<body>
+    <header>
+        <nav class="heading">
+            <span class="hamburger" id="hamburgerX">☰</span>
+            <ul id="navBar" class="nav-bar">
+                <!-- Menu will populate here -->
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+        <h1>Sign up</h1>
+        <form action="/v1/portal/register" method="post" enctype="application/x-www-form-urlencoded">
+        <fieldset>
+            <legend>Please fill out this form to finalize your account</legend>
+            <label for="myFirstName">First name&colon;<input type="text" name="firstName" autocomplete="given-name" id="myFirstName" required="required" /></label>
+            <label for="myLastName">Last name&colon;<input type="text" name="lastName" autocomplete="family-name" id="myLastName" required="required" /></label>
+        </fieldset>
+            <label for="myUsername">Username&colon;<input type="text" name="username" autocomplete="username" id="myUsername" required="required" /></label>
+            <p>Your username hides your identity from our customers. Choose a name that doesn’t include elements of your first name, last name, or payment email address.</p>
+            <label for="myEmail">Email address&colon;<input type="email" name="email" autocomplete="email" id="myEmail" required="required" /></label>
+            <label for="myPassword">Password&colon;<input type="password" name="password" autocomplete="current-password" id="myPassword" required="required" /></label>
+            <p>Minimum of 8 characters, 1 uppercase, 1 lowercase, and 1 digit.</p>
+            <label for="myPostalCode">ZIP/Postal code&colon;<input type="text" name="postal" autocomplete="postal-code" id="myPostalCode" required="required" /></label>
+            <fieldset>
+                <label><input type="checkbox" name="agree" id="">I agree with the <a href="/legal/web-terms">Terms of Use</a> and the <a href="/legal/web-privacy">Privacy Policy</a>.</label>
+                <legend>Subscribe to newsletter?</legend>
+                <label><input type="radio" name="radio" value="yes" /> Yes</label>
+                <label><input type="radio" name="radio" value="no" /> No</label>
+            </fieldset>
+            <input type="submit" value="Get started for free" />
+        </form>
+        <p><span>Already have an account&quest;</span><a href="/portal/signin">Sign in to my account</a></p>
+    </main>
+    <p>
+        Verify your email address
+        Please follow the link we have sent to sabuein@gmail.com to verify this email address.
+
+        Note: It might take up to 30 seconds for the changes to propagate.
+        Resend
+        Close
+    </p>
+</body>
+
+</html>

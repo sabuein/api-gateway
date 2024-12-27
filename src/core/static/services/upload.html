@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="use-all-space">
 
 <head>
     <base href="https://app.abuein.com/" />
@@ -12,10 +12,10 @@
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link type="text/css" rel="stylesheet" href="assets/css/default.css" />
-    <title>Home &dash; AbuEin Portal</title>
+    <title>Upload &dash; AbuEin Web Portal</title>
 </head>
 
-<body>
+  <body>
     <header>
         <nav class="heading">
             <span class="hamburger" id="hamburgerX">☰</span>
@@ -25,16 +25,10 @@
         </nav>
     </header>
     <main id="main-content">
-        <h1>Welcome to the Portal</h1>
-        <p>This is a dynamic portal with public and private routes.</p>
-        <p>PWAmp is a simple audio player app for the web, and desktop operating systems. It is built with HTML, CSS, JavaScript, and Progressive Web App features.</p>
+        <h1>Upload</h1>
+    <form action="/v1/admin/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required="required" />
+        <input type="submit" value="Upload" />
+    </form>
     </main>
-    <footer>
-        <hgroup>
-            <h2>Have questions&quest;</h2>
-            <p><a href="/help">Visit the Help Centre</a></p>
-        </hgroup>
-    </footer>
-</body>
-
-</html>
+  </body>

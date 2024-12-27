@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" class="use-all-space">
+
+<head>
+    <base href="https://app.abuein.com/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#181c25" />
+  <script type="module" src="assets/js/app.js"></script>
+  <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.js"></script>
+  <link rel="manifest" href="app.webmanifest" crossorigin="use-credentials" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link type="text/css" rel="stylesheet" href="assets/css/default.css" />
+  <link type="text/css" rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps.css" />
+  <title>Location &dash; AbuEin Web Portal</title>
+</head>
+
+  <body>
+    <header>
+        <nav class="heading">
+            <span class="hamburger" id="hamburgerX">☰</span>
+            <ul id="navBar" class="nav-bar">
+                <!-- Menu will populate here -->
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+        <h1>Location</h1>
+        <button id="fetchLocationButton">Get location</button>
+    </main>
+    <script type="module">
+    import { getScreenShot } from "../assets/js/modules/maps.js";
+    document.getElementById("fetchLocationButton").addEventListener("click", async () => {
+        try {
+            const url = await getScreenShot(10);
+            console.log("Static Image URL:", url);
+            const imgElement = document.createElement("img");
+            imgElement.src = url;
+            document.body.appendChild(imgElement);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    });
+    </script>
+  </body>

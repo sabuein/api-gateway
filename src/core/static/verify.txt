@@ -1,0 +1,16 @@
+Hello,
+
+Follow this link to verify your email address.
+
+https://boxy-svg.com/__/auth/action?mode=verifyEmail&oobCode=zS01znXH5UeMy4nc-EhfecbPSZfDU63eevpHb2Nnu9wAAAGT26oLDA&apiKey=AIzaSyDJH9MIWHDI4zhbSK9r19VKSTm-lyu3vZw&lang=en
+
+If you didn’t ask to verify this address, you can ignore this email.
+
+Thanks,
+
+Your Boxy SVG team
+
+==========================================================
+
+Your email has been verified
+You can now sign in with your new account

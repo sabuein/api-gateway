@@ -12,7 +12,7 @@
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link type="text/css" rel="stylesheet" href="assets/css/default.css" />
-    <title>Home &dash; AbuEin Portal</title>
+    <title>Sign in to my account &dash; AbuEin Web Portal</title>
 </head>
 
 <body>
@@ -25,16 +25,14 @@
         </nav>
     </header>
     <main id="main-content">
-        <h1>Welcome to the Portal</h1>
-        <p>This is a dynamic portal with public and private routes.</p>
-        <p>PWAmp is a simple audio player app for the web, and desktop operating systems. It is built with HTML, CSS, JavaScript, and Progressive Web App features.</p>
+        <h1>Sign in to my account</h1>
+        <form action="/api/signin" method="post" enctype="application/x-www-form-urlencoded">
+            <label for="myUsername">Username&colon;<input type="text" name="username" autocomplete="username" id="myUsername" required="required" /></label>
+            <label for="myPassword">Password&colon;<input type="password" name="password" autocomplete="current-password" id="myPassword" required="required" /></label>
+            <input type="submit" value="Sign in" />
+        </form>
+        <p><span>You don&apos;s have an account&quest;</span><a href="/portal/signup">Sign up&excl;</a></p>
     </main>
-    <footer>
-        <hgroup>
-            <h2>Have questions&quest;</h2>
-            <p><a href="/help">Visit the Help Centre</a></p>
-        </hgroup>
-    </footer>
 </body>
 
 </html>
