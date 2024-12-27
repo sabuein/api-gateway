@@ -4,6 +4,7 @@
 .env.staging
 .env.production
 
+uploads
 # Logs
 logs
 *.log
