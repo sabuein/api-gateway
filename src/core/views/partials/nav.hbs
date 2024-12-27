@@ -1,0 +1,10 @@
+<!-- nav.hbs -->
+<nav>
+    <li><a href="/">Root</a></li>
+    <li><a href="/v1">Homepage</a></li>
+    <li><a href="/v1/about">About</a></li>
+    <li><a href="/v1/contact">Contact</a></li>
+    {{#if user}}<li><a href="/v1/admin">Admin</a></li>
+    <li><a href="/v1/admin/signout">Signout</a></li>{{else}}<li><a href="/v1/admin/signin">Signin</a></li>
+    <li><a href="/v1/admin/register">Register</a></li>{{/if}}
+</nav>

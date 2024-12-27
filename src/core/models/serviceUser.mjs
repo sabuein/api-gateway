@@ -1,5 +1,5 @@
 // /src/models/serviceUser.mjs
-import pool from "../config/db.mjs";
+import pool from "../configuration/db.mjs";
 
 const table = "User";
 

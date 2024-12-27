@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { authentication } from "../config/env.mjs";
+import { authentication } from "../configuration/env.mjs";
 
 
 /** Generate access token for 10 minutes == 600s (by default). */

@@ -50,9 +50,9 @@ class User {
         return User.#users;
     }
 
-    static async findOne(username, email) {
+    static async findOne(username) {
         try {
-            const details = await findByEmail(email) ?? await findByUsername(username);
+            const details = await findByUsername(username);
             if (!details) throw Error("We can't find a user with the provided information");
             const user = details[0];
             const settings = {
@@ -232,7 +232,6 @@ class User {
             id: this.#id,
             username: this.#username,
             email: this.#email,
-            password: this.#password,
             firstName: this.#firstName,
             lastName: this.#lastName,
             role: this.#role,
@@ -242,7 +241,6 @@ class User {
             failedLoginAttempts: this.#failedLoginAttempts,
             createdAt: `${this.#createdAt}`,
             updatedAt: `${this.#updatedAt}`,
-            print: () => `Enjoy habibi, ${this.#firstName}!`
         };
     }
 

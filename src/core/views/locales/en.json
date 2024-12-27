@@ -1,0 +1,5 @@
+{
+    "title": "Homepage",
+    "message": "Welcome to the gateway!",
+    "welcome_user": "Salaam, {{name}}!"
+}

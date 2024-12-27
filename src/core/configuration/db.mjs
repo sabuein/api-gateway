@@ -1,4 +1,6 @@
-// /src/config/db.mjs
+"use strict";
+
+// /src/configuration/db.mjs
 import mariadb from "mariadb";
 import { db } from "./env.mjs";
 

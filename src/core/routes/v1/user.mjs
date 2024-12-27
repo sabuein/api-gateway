@@ -28,21 +28,8 @@ const employees = [
   { firstName: "Mary", lastName: "Green", age: 50 },
 ];
 
-// Get data
-router.get("/:id", getUser, (req, res) => {
-  try {
-      res.status(200).json({
-        success: true,
-        message: "Logged In User Information.",
-        user: req.user
-      });} catch (error) {
-        console.error("Error fetching data:", error.message);
-        res.status(500).json({ success: false, message: "Database error" });
-    }
-});
-
 router
-  .get("/", getUsers, (req, res) => {
+  .get("/", (req, res) => {
     // /employees?lastName=Smith&age=30
     const { firstName, lastName, age } = req.query;
     let results = [...employees];
@@ -60,7 +47,7 @@ router
     res.json(results);
   });
 
-  router.post("/", createUser, (req, res) => {
+  router.post("/", (req, res) => {
     const { email } = req.body;
     const userExists = users.find((u) => u.email === email);
     if (userExists)
@@ -72,5 +59,39 @@ router
       data: { user: { email: req.user.email }, body: req.body },
     });
   });
+
+// Get data
+router.get("/:userId", (req, res) => {
+  try {
+      res.status(200).json({
+        success: true,
+        message: "Logged In User Information.",
+        user: req.user
+      });} catch (error) {
+        console.error("Error fetching data:", error.message);
+        res.status(500).json({ success: false, message: "Database error" });
+    }
+});
+
+router.get("/:userId/posts", (req, res) => {
+  // Access userId via: req.params.userId
+  res.send(req.params);
+});
+
+router.get("/:userId/posts/:postId", (req, res) => {
+  // Access userId via: req.params.userId
+  // Access bookId via: req.params.bookId
+  res.send(req.params);
+});
+
+
+router.get("/profile", (req, res) => {
+  const sessionId = req.cookies["session_id"];
+  if (isValidSession(sessionId)) {
+      res.send("Profile page");
+  } else {
+      res.status(401).send("Unauthorized");
+  }
+});
 
 export default router;

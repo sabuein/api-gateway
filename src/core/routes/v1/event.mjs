@@ -36,6 +36,20 @@ router.post("/", validate(eventSchema), (req, res) => {
 
 router.put("/:id", (req, res) => {
     const { id } = req.params;
+    /*
+    
+    If the target resource does not have a current representation and the PUT request successfully creates one, then the origin server must send a 201 Created response:
+
+    HTTP/1.1 201 Created
+    Content-Location: /new.html
+
+    If the target resource does have a current representation and that representation is successfully modified with the state in the request, the origin server must send either a 200 OK or a 204 No Content to indicate successful completion of the request:
+    
+    HTTP/1.1 204 No Content
+    Content-Location: /existing.html
+
+    */
+   
     // code to update an event...
     res.json(req.body);
 });

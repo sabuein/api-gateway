@@ -3,50 +3,61 @@ import express from "express";
 import http from "http-proxy-middleware";
 import apicache from "apicache";
 import cookieParser from "cookie-parser";
-import { dirname, join } from "path";
+import session from "express-session";
+import { dirname } from "path";
 import { fileURLToPath } from "url";
-import logger from './middlewares/logging.mjs';
-import v1Routes from "./routes/v1/index.mjs";
-import commandRoutes from "./routes/command.mjs";
-import routerAdmins from "./routes/admin.mjs";
-import { authentication, settings } from "./config/env.mjs";
+import logger from "./middlewares/logging.mjs";
+import v1Routes from "./routes/index.mjs";
+import { authentication, settings } from "./configuration/env.mjs";
+import { sessionOptions } from "./configuration/storage.mjs";
 import handlebars from "express-handlebars";
+import compression from "compression";
+import helmet from "helmet";
+import RateLimit from "express-rate-limit";
 
 const app = express(),
     port = settings.port,
     __filename = fileURLToPath(import.meta.url),
-    __dirname = dirname(__filename);
+    __dirname = dirname(__filename),
+    limiter = RateLimit({
+        windowMs: 15 * 60 * 1000, // 15 minutes
+        max: 100 // limit each IP to 100 requests per windowMs
+    });
 
 // Local variables
-app.locals.title = "API Gateway v1";
+app.locals.title = "API Gateway - Version 1.0";
 
 app.engine("hbs", handlebars.engine({
     layoutsDir: __dirname + "/views/layouts",
     extname: "hbs",
     defaultLayout: "main"
 }));
+
 app.set("view engine", "hbs");
 app.set("views", "src/core/views");
 
-app.use(logger);
-app.use(express.static("src/core/static", {
-    setHeaders: function (res, path, stat) {
-        res.set("x-timestamp", Date.now())
-    }
-}));
 // app.use(apicache.middleware("5 minutes"));
 app.use(express.text({ type: "text/plain" }));
 app.use(express.json({ type: "application/json" }));
 app.use(express.urlencoded({ type: "application/x-www-form-urlencoded", extended: false }));
+
 app.use(cookieParser(authentication.cookie));
+app.use(session(sessionOptions));
+app.use(compression());
+app.use(helmet());
+app.use(limiter);
+app.use(logger);
+
+/*
+app.use(express.static("src/core/static", {
+    setHeaders: (res, path, stat) => res.set("x-timestamp", Date.now())
+}));
+*/
 
 // Proxy to different services
 app.use("/service1", http.createProxyMiddleware({ target: "http://localhost:5000", changeOrigin: true }));
 app.use("/service2", http.createProxyMiddleware({ target: "http://localhost:6000", changeOrigin: true }));
 
-// Routes
-app.use("/", commandRoutes);
-app.use("/cc", routerAdmins);
 app.use("/v1", v1Routes);
 
 app.use((error, req, res, next) => {
@@ -57,7 +68,7 @@ app.use((error, req, res, next) => {
             break;
         case 403:
             message = "<h1>403 Forbidden</h1><p>The server understood the request but refused to process it.</p>";
-            res.redirect(302, "/cc/signin");
+            res.redirect(302, "/v1/user/signin");
             break;
         case 404:
             message = "<h1>404 Not Found</h1><p>The server cannot find the requested resource.</p>";
@@ -76,11 +87,22 @@ app.use((error, req, res, next) => {
             res.set("Content-Type", "text/html");
             res.status(error.status ?? 400).send(message ?? "<h1>Unknown Error</h1>");
             */
+
+            res.locals.error = error;
+            res.locals.message = error.messsage || message;
+
             res.set("Content-Type", "application/json");
             res.status(error.status || 500).json({
                 success: false,
                 code: error.status || 500,
                 message: error.messsage || message || "<h1>Unknown Error</h1>",
+            });
+
+            res.render("error", {
+                title: `Error ${error.status} - [App Name]`,
+                heading: "Page Not Found",
+                subheading: `We couldn't find the page you were looking for. It might have been moved or no longer exists. Try returning to the homepage or contact us for help.`,
+                layout: "index"
             });
 
             console.error(error.stack);

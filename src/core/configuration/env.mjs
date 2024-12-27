@@ -1,4 +1,6 @@
-// /src/config/env.mjs
+"use strict";
+
+// /src/configuration/env.mjs
 import dotenv from "dotenv";
 
 dotenv.config({ path: ".env.development" });
@@ -17,7 +19,9 @@ const authentication = {
     audience: process.env.JWT_AUDIENCE,
     issuer: process.env.JWT_ISSUER,
     // The secret is used to sign and validate cookies.
-    cookie: process.env.COOKIE_SECRET
+    cookie: process.env.COOKIE_SECRET,
+    // The secret is used to sign and validate sessions.
+    session: process.env.SESSION_SECRET
 };
 
 const settings = {
