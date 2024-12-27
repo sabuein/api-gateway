@@ -1,0 +1,9 @@
+Thank you!
+
+https://picsum.photos/
+https://jsonplaceholder.typicode.com/
+https://openfoodfacts.github.io/openfoodfacts-server/api/
+https://digidates.de/en/
+https://wit.ai/
+
+- https://www.digitalocean.com/community/tutorials/how-to-use-pm2-to-setup-a-node-js-production-environment-on-an-ubuntu-vps
