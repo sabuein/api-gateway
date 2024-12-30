@@ -9,7 +9,7 @@ const db = {
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    name: process.env.DB_NAME
+    name: process.env.DB_NAME,
 };
 
 const authentication = {
@@ -21,17 +21,13 @@ const authentication = {
     // The secret is used to sign and validate cookies.
     cookie: process.env.COOKIE_SECRET,
     // The secret is used to sign and validate sessions.
-    session: process.env.SESSION_SECRET
+    session: process.env.SESSION_SECRET,
 };
 
 const settings = {
     // The basic API port and prefix configuration values are:
-    port: process.env.PORT ??= 3000,
-    prefix: process.env.API_PREFIX ??= "api"
+    port: (process.env.PORT ??= 3000),
+    prefix: (process.env.API_PREFIX ??= "api"),
 };
 
-export {
-    db,
-    authentication,
-    settings
-};
+export { db, authentication, settings };

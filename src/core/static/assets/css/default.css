@@ -1,14 +1,20 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 14pt;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+  overflow-y: scroll;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  word-wrap: break-word;
 }
 
 :root {
@@ -31,15 +37,11 @@ html {
   }
 }
 
-input,
-button {
-  font-size: inherit;
-  font-family: inherit;
+ol, ul {
+  margin: 1em;
 }
 
-ul,
-ol,
-li {
+ol, ul, li {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -47,6 +49,56 @@ li {
 
 ul > ul {
   padding-left: 1rem;
+}
+
+dl {
+  font-family: monospace, monospace;
+}
+
+dl dt {
+  font-weight: bold;
+}
+
+dl dd {
+  margin: -1em 0 1em 1em;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  caption-side: bottom;
+}
+
+table * {
+  border: none;
+}
+
+table thead, table tr {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+table tr:nth-child(even) {
+  background-color: rgba(200, 200, 200, 0.2);
+}
+
+table tbody {
+  max-height: 70dvh;
+  overflow-y: auto;
+}
+
+figure {
+  margin: 1rem 0;
+}
+
+figure figcaption {
+  font-family: monospace, monospace;
+  font-size: 0.75rem;
+  text-align: center;
+  color: grey;
 }
 
 ::-webkit-scrollbar, ::-webkit-scrollbar-track {
@@ -61,7 +113,6 @@ ul > ul {
 
 body {
     margin: 0;
-    padding: 2rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -71,6 +122,101 @@ body {
     gap: 1rem;
     background-color: var(--back);
   color: var(--text);
+  accent-color: #04669b;
+}
+
+h1, h2, h3 {
+  line-height:1.2;
+}
+
+p {
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+p code {
+  background-color: #eee;
+  padding: 0.05rem 0.2rem;
+  border: 1px solid #ccc;
+}
+
+a {
+  color: #fa6432;
+  text-decoration: none;
+}
+
+a:hover, a:focus, a:active {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+[aria-label="close"] {
+  appearance: none;
+  float: right;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+:focus {
+  outline: 2px solid #226DAA;
+}
+
+dialog {
+  width: 30rem;
+  max-width: 60vw;
+  color: CanvasText;
+  background-color: Canvas;
+  opacity: 0;
+  transform: scaleY(0);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out,
+    overlay 0.7s ease-out allow-discrete,
+    display 0.7s ease-out allow-discrete;
+  /* Equivalent to
+  transition: all 0.7s allow-discrete; */
+  animation: fade-out 0.7s ease-out;
+}
+
+dialog[open] {
+  opacity: 1;
+  transform: scaleY(1);
+  animation: fade-in 0.7s ease-out;
+}
+
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+}
+
+dialog[aria-modal="false"] {
+  border: thin solid red;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0%);
+  transition:
+    display 0.7s allow-discrete,
+    overlay 0.7s allow-discrete,
+    background-color 0.7s;
+  /* Equivalent to
+  transition: all 0.7s allow-discrete; */
+}
+
+dialog[open]::backdrop {
+  background-color: rgb(0 0 0 / 25%);
+  animation: backdrop-fade-in 0.7s ease-out forwards;
+}
+
+/* This starting-style rule cannot be nested inside the above selector
+because the nesting selector cannot represent pseudo-elements. */
+
+@starting-style {
+  dialog[open]::backdrop {
+    background-color: rgb(0 0 0 / 0%);
+  }
 }
 
 form {
@@ -99,6 +245,17 @@ input {
 input:focus {
     outline: none;
 }
+
+button {
+  font-family: system-ui;
+}
+
+input,
+button {
+  font-size: inherit;
+  font-family: inherit;
+}
+
 button[disabled] {
   display: none;
 }
@@ -268,9 +425,7 @@ dialog:not([open]) {
 }
 
 main {
-  width: 50dvw;
   max-width: 100%;
-  height: 75dvh;
   max-height: 100%;
 }
 
@@ -297,4 +452,85 @@ main {
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   position: relative;
   z-index: 1;
+}
+
+/* Animation keyframes */
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+    display: none;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+    display: block;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+    display: block;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scaleY(0);
+    display: none;
+  }
+}
+
+@keyframes backdrop-fade-in {
+  0% {
+    background-color: rgb(0 0 0 / 0%);
+  }
+
+  100% {
+    background-color: rgb(0 0 0 / 25%);
+  }
+}
+
+*.flexy {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+*.flexy.row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+*.posts.container {
+  gap: 2rem;
+
+  article {
+    flex: 0 0 22rem;
+    gap: .5rem;
+  }
+}
+
+*.post {
+  *.tags,
+  *.reactions {
+    gap: .5rem;
+  }
+}
+
+#loading-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
 }

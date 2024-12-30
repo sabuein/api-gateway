@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <base href="https://app.abuein.com/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,6 +15,13 @@
 </head>
 
 <body>
+    <dialog open="" role="alertdialog" aria-labelledby="idOfLabelingText">
+        <form method="dialog">
+            <button type="submit" aria-label="close" formmethod="dialog" formnovalidate="formnovalidate" autofocus="autofocus">Close</button>
+        </form>
+        <p>Try closing this dialog using <kbd>Esc</kbd>&period;</p>
+    </dialog>
+    <button id="showDialog">Show the dialog</button>
     <header>
         <nav class="heading">
             <span class="hamburger" id="hamburgerX">☰</span>

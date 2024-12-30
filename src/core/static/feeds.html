@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <base href="https://app.abuein.com/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,7 +11,7 @@
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link type="text/css" rel="stylesheet" href="assets/css/default.css" />
-    <title>Services &dash; AbuEin Web Portal</title>
+    <title>Feeds &dash; AbuEin Web Portal</title>
 </head>
 
 <body>
@@ -25,8 +24,15 @@
         </nav>
     </header>
     <main id="main-content">
-        <h1>Services</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga voluptate rem exercitationem velit dolore? Recusandae odio, eligendi dolorum, dolores voluptatem, suscipit reiciendis amet maiores aut rem soluta voluptas architecto est. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic mollitia, quibusdam, quia consequatur deleniti soluta quae obcaecati modi odit, dolorem itaque placeat. Dolor asperiores aspernatur id omnis. Aliquid, laborum provident!</p>
+        <h1>Feeds</h1>
+        <select onchange="window.location.assign('/feeds?filter=' + this.value);">
+            <option value="/" disabled="disabled" hidden="hidden" selected="selected">Filter:</option>
+            <option value="all">All</option>
+            <option value="read">Read</option>
+            <option value="listen">Listen</option>
+            <option value="watch">Watch</option>
+            <option value="see">See</option>
+        </select>
     </main>
 </body>
 

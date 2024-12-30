@@ -1,7 +1,11 @@
 # api-gateway
 
-Frontend as a Progressive Web App (PWA) (HTML, CSS, JavaScript)
-Backend with NodeJS, MariaDB, and Express (JavaScript, SQL)
+Progressive Web App (PWA) (HTML, CSS, JavaScript)
+RESTful API with NodeJS, MariaDB, and Express (JavaScript, SQL)
+
+## License
+
+This project is open-source and available under the MIT License.
 
 ### Always Separate Concerns:
 - Routes define endpoints.

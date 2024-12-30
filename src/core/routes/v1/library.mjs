@@ -7,7 +7,7 @@ import {
     getEventComments,
     addEvent,
     updateEvent,
-    deleteEvent
+    deleteEvent,
 } from "../../controllers/serviceEventController.mjs";
 import validate from "../../middlewares/validation.mjs";
 import eventSchema from "../../validations/eventValidation.mjs";

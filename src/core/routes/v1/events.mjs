@@ -7,7 +7,7 @@ import {
     getEventComments,
     addEvent,
     updateEvent,
-    deleteEvent
+    deleteEvent,
 } from "../../controllers/serviceEventController.mjs";
 import validate from "../../middlewares/validation.mjs";
 import eventSchema from "../../validations/eventValidation.mjs";
@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
     res.json(events);
 });
 
-router.get('/:id/comments', (req, res) => {
+router.get("/:id/comments", (req, res) => {
     const { id } = req.params;
     const comments = [];
     // code to get comments by eventId
@@ -30,7 +30,7 @@ router.get('/:id/comments', (req, res) => {
 router.post("/", validate(eventSchema), (req, res) => {
     res.status(200).json({
         success: true,
-        message: "Event created successfully!"
+        message: "Event created successfully!",
     });
 });
 
@@ -49,7 +49,7 @@ router.put("/:id", (req, res) => {
     Content-Location: /existing.html
 
     */
-   
+
     // code to update an event...
     res.json(req.body);
 });

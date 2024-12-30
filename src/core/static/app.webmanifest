@@ -1,20 +1,21 @@
 {
+  "name": "AbuEin Web Portal",
+  "short_name": "AbuEin",
+  "description": "",
   "id": "/",
   "start_url": "https://app.abuein.com/",
-  "scope": "/",
-  "short_name": "AbuEin",
-  "name": "AbuEin Web Portal",
-  "description": "",
-  "lang": "en-GB",
+  "theme_color": "#04669b",
+  "background_color": "#fdfdfd",
+  "orientation": "any",
   "display": "standalone",
   "display_override": [
     "window-controls-overlay"
   ],
+  "scope": "/",
+  "lang": "en-GB",
   "edge_side_panel": {
     "preferred_width": 496
   },
-  "theme_color": "#04669b",
-  "background_color": "#fdfdfd",
   "prefer_related_applications": false,
   "icons": [
     {

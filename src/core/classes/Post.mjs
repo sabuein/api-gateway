@@ -3,7 +3,6 @@
 /** @module Post */
 /** Class representing a post. */
 class Post {
-    
     #id; // Unique post ID
     #userId; // ID of the user who created the post
     #content; // Text content of the post
@@ -17,20 +16,21 @@ class Post {
     #updatedAt;
     #scheduledAt;
     #visibility = "public"; // Visibility setting: "public", "private", "followers"
-    #reactions = { // Reactions count
+    #reactions = {
+        // Reactions count
         like: 0,
         love: 0,
         haha: 0,
         wow: 0,
         sad: 0,
-        angry: 0
+        angry: 0,
     };
     #poll = {
         question: "Which feature do you want next?",
         options: [
             { option: "Dark mode", votes: 10 },
-            { option: "Light theme", votes: 5 }
-        ]
+            { option: "Light theme", votes: 5 },
+        ],
     };
 
     static keys(post) {
@@ -41,7 +41,9 @@ class Post {
 
     static entries(event) {
         const properties = [];
-        Object.entries(event).forEach(([key, value]) => properties.push([key, value]));
+        Object.entries(event).forEach(([key, value]) =>
+            properties.push([key, value])
+        );
         return properties;
     }
 
@@ -53,8 +55,12 @@ class Post {
         this.#content = content;
     }
 
-    get id() { return this.#id; }
-    set id(value) { this.#id = value; }
+    get id() {
+        return this.#id;
+    }
+    set id(value) {
+        this.#id = value;
+    }
 
     // Add a like
     addLike(userId) {
@@ -68,8 +74,9 @@ class Post {
 
     // Add a reaction
     addReaction(reactionType) {
-        if (this.#reactions[reactionType] !== undefined) this.#reactions[reactionType]++;
+        if (this.#reactions[reactionType] !== undefined)
+            this.#reactions[reactionType]++;
     }
-};
+}
 
 export default Post;

@@ -12,7 +12,7 @@ const pool = mariadb.createPool({
     database: db.name,
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
+    queueLimit: 0,
 });
 
 // Export the pool directly, as it already supports Promises

@@ -17,3 +17,11 @@ Big thanks to:
 - https://expressjs.com/en/api.html#express.static
 - https://mapmaker.tomtom.com/styles
 - https://www.w3schools.com/graphics/game_intro.asp
+
+- DummyJSON - Free Fake REST API for Placeholder JSON Data https://dummyjson.com/
+- Placehold | A simple, fast and free image placeholder service https://placehold.co/
+- Lorem Picsum https://picsum.photos/
+
+- https://motherfuckingwebsite.com/
+- http://bettermotherfuckingwebsite.com/
+

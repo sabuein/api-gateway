@@ -1,5 +1,13 @@
 // /src/server.mjs
-import { exists, open, close, readFile, createReadStream, createWriteStream, readFileSync } from "node:fs";
+import {
+    exists,
+    open,
+    close,
+    readFile,
+    createReadStream,
+    createWriteStream,
+    readFileSync,
+} from "node:fs";
 import { app, port } from "./core/app.mjs";
 import http from "http";
 import https from "https";

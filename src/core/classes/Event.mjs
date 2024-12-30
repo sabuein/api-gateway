@@ -3,7 +3,6 @@
 /** @module Event */
 /** Class representing an event. */
 class Event {
-
     #id; // Unique event ID
     #title; // Name of the event
     #description; // Detailed information about the event
@@ -24,13 +23,13 @@ class Event {
     #poster = null;
     #media = []; // Array of media URLs (e.g., posters, banners)
     #status = "upcoming"; // Current status of the event: "upcoming", "ongoing", "completed", "cancelled"
-    #rsvp = { yes: [], maybe: [], no: [] } // RSVP responses
+    #rsvp = { yes: [], maybe: [], no: [] }; // RSVP responses
     #ticketPrice = 0;
     #ticketsSold = 0;
     #recurrence = {
         active: false,
         type: "weekly",
-        endAfter: 10
+        endAfter: 10,
     };
 
     /**
@@ -51,18 +50,23 @@ class Event {
      */
     static entries(event) {
         const properties = [];
-        Object.entries(event).forEach(([key, value]) => properties.push([key, value]));
+        Object.entries(event).forEach(([key, value]) =>
+            properties.push([key, value])
+        );
         return properties;
     }
-     
+
     /**
      * Currency formatter.
      * @param {number} amount - Using Intl.NumberFormat for converting a number into a string (i.e. 123456.78).
      * @return {string} A formated string that represents GBP (i.e. £123,456.78).
      */
     static formatter(amount) {
-        const object = new Intl.NumberFormat("en-UK", { style: "currency", currency: "GBP" });
-        return object.format(amount)
+        const object = new Intl.NumberFormat("en-UK", {
+            style: "currency",
+            currency: "GBP",
+        });
+        return object.format(amount);
     }
 
     /**
@@ -72,27 +76,33 @@ class Event {
      */
     constructor(properties) {
         // Object.assign(this, properties);
-        const {
-            title,
-            description,
-            location,
-            startTime,
-            endTime,
-        } = properties;
+        const { title, description, location, startTime, endTime } = properties;
 
-        this.#title = title; 
-        this.#description = description; 
-        this.#location = location; 
-        this.#startTime = startTime; 
-        this.#endTime = endTime; 
+        this.#title = title;
+        this.#description = description;
+        this.#location = location;
+        this.#startTime = startTime;
+        this.#endTime = endTime;
     }
 
-    get id() { return this.#id; }
-    set id(value) { this.#id = value; }
-    get createdAt() { return this.#createdAt; }
-    set createdAt(value) { this.#createdAt = value; }
-    get updatedAt() { return this.#updatedAt; }
-    set updatedAt(value) { this.#updatedAt = value; }
+    get id() {
+        return this.#id;
+    }
+    set id(value) {
+        this.#id = value;
+    }
+    get createdAt() {
+        return this.#createdAt;
+    }
+    set createdAt(value) {
+        this.#createdAt = value;
+    }
+    get updatedAt() {
+        return this.#updatedAt;
+    }
+    set updatedAt(value) {
+        this.#updatedAt = value;
+    }
 
     /**
      * Add attendee.
@@ -101,7 +111,10 @@ class Event {
      */
     addAttendee(userId) {
         if (Array.isArray(this.#attendees)) {
-            if (!this.#maxAttendees || this.#attendees.length < this.#maxAttendees) {
+            if (
+                !this.#maxAttendees ||
+                this.#attendees.length < this.#maxAttendees
+            ) {
                 this.#attendees.push(userId);
             } else {
                 throw new Error("Event is full.");
@@ -118,7 +131,7 @@ class Event {
     updateRSVP(userId, response) {
         if (["yes", "maybe", "no"].includes(response)) {
             for (const key in this.#rsvp) {
-                this.#rsvp[key] = this.#rsvp[key].filter(id => id !== userId);
+                this.#rsvp[key] = this.#rsvp[key].filter((id) => id !== userId);
             }
             this.#rsvp[response].push(userId);
         } else {
@@ -132,7 +145,11 @@ class Event {
      * @return {void} Nothing.
      */
     updateStatus(newStatus) {
-        if (["upcoming", "ongoing", "completed", "cancelled"].includes(newStatus)) {
+        if (
+            ["upcoming", "ongoing", "completed", "cancelled"].includes(
+                newStatus
+            )
+        ) {
             this.#status = newStatus;
         } else {
             throw new Error("Invalid event status.");
@@ -167,7 +184,7 @@ class Event {
             dates: `${this.#startTime}/${this.#endTime}`, // ISO 8601 format
             details: this.#description, // Event description
             location: this.#location, // Event location
-            trp: "false" // Disable reminders by default
+            trp: "false", // Disable reminders by default
         });
         return `${baseUrl}?${params.toString()}`;
     }
@@ -195,6 +212,6 @@ class Event {
         const url = URL.createObjectURL(blob);
         return url;
     }
-};
+}
 
 export default Event;

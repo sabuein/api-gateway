@@ -1,6 +1,6 @@
 "use strict";
 
-// /src/core/routes/command.mjs
+// /src/core/routes/commands.mjs
 import express from "express";
 import { exec } from "child_process";
 
@@ -8,14 +8,16 @@ const router = express.Router();
 
 /** Generate strong password. */
 router.get("/password", (req, res) => {
-    const command = 'pwgen -cnysC 15 1';
+    const command = "pwgen -cnysC 15 1";
 
     console.log(`Executing command: ${command}`);
 
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing command: ${error.message}`);
-            return res.status(500).json({ success: false, error: error.message });
+            return res
+                .status(500)
+                .json({ success: false, error: error.message });
         }
 
         if (stderr) {

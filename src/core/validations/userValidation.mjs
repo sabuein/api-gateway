@@ -1,18 +1,17 @@
+"use strict";
+
 // /src/validations/userValidation.mjs
 import Joi from "joi";
 
-const userLoginSchema = Joi.object({
+const userSchema = Joi.object({
     username: Joi.string().min(3).required(),
     password: Joi.string().min(6).required(),
 });
 
-const userRegisterSchema = Joi.object({
+const newUserSchema = Joi.object({
     username: Joi.string().min(3).required(),
     email: Joi.string().email().required(),
     password: Joi.string().min(6).required(),
 });
 
-export {
-    userLoginSchema,
-    userRegisterSchema
-};
+export { userSchema, newUserSchema };

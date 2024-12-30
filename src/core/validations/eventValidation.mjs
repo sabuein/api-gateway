@@ -1,3 +1,5 @@
+"use strict";
+
 // /src/validations/eventValidation.mjs
 import Joi from "joi";
 

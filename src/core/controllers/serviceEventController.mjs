@@ -8,10 +8,4 @@ const addEvent = async (req, res, next) => {};
 const updateEvent = async (req, res, next) => {};
 const deleteEvent = async (req, res, next) => {};
 
-export {
-    getEvent,
-    getEventComments,
-    addEvent,
-    updateEvent,
-    deleteEvent
-};
+export { getEvent, getEventComments, addEvent, updateEvent, deleteEvent };

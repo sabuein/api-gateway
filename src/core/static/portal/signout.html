@@ -9,9 +9,9 @@
     <script type="module" src="/assets/js/app.js"></script>
     <link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
-    <title>Portal &dash; AbuEin Web Portal</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/default.css" />
+    <title>Sign Out &dash; AbuEin Web Portal</title>
 </head>
 
 <body>
@@ -24,7 +24,13 @@
         </nav>
     </header>
     <main id="main-content">
-        <h1>Portal</h1>
+        <hgroup>
+            <h1>You've Signed Out</h1>
+            <p>You've successfully signed out. For your security, be sure to close your browser. We'll be here when you're ready to return!</p>
+        </hgroup>
+        <form action="/api/auth/logout" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="submit" value="Sign Me Out" />
+        </form>
     </main>
 </body>
 

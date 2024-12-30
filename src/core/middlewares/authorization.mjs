@@ -12,11 +12,11 @@ const checkPermission = (role, action) => {
 const authorize = (action) => (req, res, next) => {
     const userRole = req.user?.role; // Assume `req.user` is populated via authentication
     if (!userRole) {
-        return res.status(403).json({ error: 'Role not specified' });
+        return res.status(403).json({ error: "Role not specified" });
     }
 
     if (!checkPermission(userRole, action)) {
-        return res.status(403).json({ error: 'Permission denied' });
+        return res.status(403).json({ error: "Permission denied" });
     }
 
     next();

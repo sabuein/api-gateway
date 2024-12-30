@@ -1,3 +1,5 @@
+"use strict";
+
 /** Sanitisation removes or escapes potentially harmful characters or patterns. */
 
 // Sanitization: Remove potentially harmful HTML tags

@@ -3,12 +3,12 @@
 // /src/routes/v1/index.mjs
 import express from "express";
 import adminRouter from "./v1/admin.mjs";
-import commandRouter from "./v1/command.mjs";
-import eventRouter from "./v1/event.mjs";
-import jobRouter from "./v1/job.mjs";
+import commandsRouter from "./v1/commands.mjs";
+import eventsRouter from "./v1/events.mjs";
+import jobsRouter from "./v1/jobs.mjs";
 import libraryRouter from "./v1/library.mjs";
-import postRouter from "./v1/post.mjs";
-import userRouter from "./v1/user.mjs";
+import postsRouter from "./v1/posts.mjs";
+import usersRouter from "./v1/users.mjs";
 
 const router = express.Router();
 
@@ -17,16 +17,20 @@ router.get("/", function (req, res, next) {
         success: true,
         message: "You accessed v1 route!",
         user: req.user,
-        cookies: req.cookies
+        cookies: req.cookies,
     });
 });
 
-router.use("/", adminRouter);
-router.use("/cmd", commandRouter);
-router.use("/event", eventRouter);
-router.use("/job", jobRouter);
+router.use("/auth", adminRouter);
+router.use("/cmd", commandsRouter);
+router.use("/events", eventsRouter);
+router.use("/jobs", jobsRouter);
 router.use("/library", libraryRouter);
-router.use("/post", postRouter);
-router.use("/user", userRouter);
+
+/** The posts endpoint offers a dataset of post data, including details like titles, body content, user IDs, and tags. */
+router.use("/posts", postsRouter);
+
+/** The users endpoint provides a versatile dataset of user information and related data like carts, posts, and todos. */
+router.use("/users", usersRouter);
 
 export default router;

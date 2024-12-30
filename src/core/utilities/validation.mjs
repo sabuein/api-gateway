@@ -1,3 +1,4 @@
+"use strict";
 
 /** Validation ensures the inputs meet certain criteria, such as correct format, length, or type. */
 

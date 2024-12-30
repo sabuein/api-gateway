@@ -1,3 +1,5 @@
+"use strict";
+
 function getLocationAsync() {
     return new Promise((resolve, reject) => {
         if (navigator.geolocation) {
