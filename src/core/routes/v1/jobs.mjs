@@ -1,6 +1,5 @@
 "use strict";
 
-// /src/routes/v1/serviceJobRoutes.mjs
 import express from "express";
 import validate from "../../middlewares/validation.mjs";
 import { postSchema } from "../../validations/postValidation.mjs";

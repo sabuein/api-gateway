@@ -67,7 +67,10 @@ httpsServer.listen(443, () => {
 
 */
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", (error) => {
+    if (error) {
+        throw error; // e.g. EADDRINUSE
+    }
     console.log(`Process ID: ${process.pid}`);
     console.log(`Node.js Version: ${process.version}`);
     console.log(`Server is running on port ${port}`);

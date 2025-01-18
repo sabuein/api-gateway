@@ -20,18 +20,18 @@ router.get("/", (req, res) => {
     res.json(events);
 });
 
-router.get("/:id/comments", (req, res) => {
-    const { id } = req.params;
-    const comments = [];
-    // code to get comments by eventId
-    res.json(comments);
-});
-
 router.post("/", validate(eventSchema), (req, res) => {
     res.status(200).json({
         success: true,
         message: "Event created successfully!",
     });
+});
+
+router.get("/:id/comments", (req, res) => {
+    const { id } = req.params;
+    const comments = [];
+    // code to get comments by eventId
+    res.json(comments);
 });
 
 router.put("/:id", (req, res) => {

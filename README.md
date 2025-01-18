@@ -1,7 +1,23 @@
 # api-gateway
 
 Progressive Web App (PWA) (HTML, CSS, JavaScript)
-RESTful API with NodeJS, MariaDB, and Express (JavaScript, SQL)
+
+RESTful API with NodeJS, MariaDB, and [Express server](http://expressjs.com) (JavaScript, SQL)
+
+## How to run
+
+1. Confirm `.env` configuration
+
+Ensure the API keys are configured in `.env` in this directory. It should include the following keys:
+
+2. Install dependencies and start the server
+
+```
+npm install
+npm start
+```
+
+3. If you're using the html client, go to `localhost:3210` to see the demo.
 
 ## License
 

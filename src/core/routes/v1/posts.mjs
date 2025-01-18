@@ -1,6 +1,5 @@
 "use strict";
 
-// /src/routes/v1/servicePostRoutes.mjs
 import express from "express";
 import {
     getPost,
@@ -194,8 +193,9 @@ router.get("/search", (req, res) => {
 });
 
 /** Get all posts by user id. */
-router.get("/user/:userId", (req, res) => {
+router.get("/user/:userId", (req, res, next) => {
     const userId = req.params.userId;
+    if (NaN(userId) || userId < 0) next();
     const userPosts = {
         posts: [
             {
@@ -230,8 +230,9 @@ router.post("/add", validate(newPostSchema), (req, res) => {
 });
 
 /** Get post's comments. */
-router.get("/:postId/comments", (req, res) => {
+router.get("/:postId/comments", (req, res, next) => {
     const postId = req.params.postId;
+    if (NaN(postId) || postId < 0) next();
     const comments = {
         comments: [
             {

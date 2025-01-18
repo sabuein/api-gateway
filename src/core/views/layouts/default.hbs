@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="A list of A-Frame entries submitted to the js13kGames 2017 competition, used as an example for the MDN articles about Progressive Web Apps.">
+	<meta name="author" content="end3r">
+    <meta name="theme-color" content="#181c25" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="black">
+    <meta property="og:image" content="/v1/assets/images/AppImages/ios/512.png">
+    <script type="importmap">
+  {
+    "imports": {
+      "auth": "/v1/assets/js/points/auth.mjs",
+      "homeland": "/v1/assets/js/points/returnToHomeland.mjs",
+      "firebaseX": "/v1/assets/js/integration/firebase.mjs",
+      "stripe": "/v1/assets/js/integration/stripe.mjs",
+      "sumup": "/v1/assets/js/integration/sumup.mjs",
+      "tomtom": "/v1/assets/js/integration/tomtom.mjs",
+      "classes": "/v1/assets/js/context/classes.mjs",
+      "links": "/v1/assets/js/context/links.mjs",
+      "experience": "/v1/assets/js/mods/experience.mjs",
+      "games": "/v1/assets/js/mods/games.mjs",
+      "importer": "/v1/assets/js/mods/importer.mjs",
+      "interface": "/v1/assets/js/mods/interface.mjs",
+      "media": "/v1/assets/js/mods/media.mjs",
+      "service": "/v1/assets/js/mods/service.mjs",
+      "utils": "/v1/assets/js/mods/utils.mjs",
+      "web": "/v1/assets/js/mods/web.mjs",
+      "firebase/app": "https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js",
+      "firebase/messaging": "https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging-compat.js"
+    }
+  }
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+    <script type="module" src="/v1/assets/js/app.mjs"></script>
+    <link rel="manifest" href="/v1/app.webmanifest" crossorigin="use-credentials" />
+    <link rel="shortcut icon" href="/v1/assets/images/favicons/favicon.ico" sizes="any" />
+    <link rel="icon" href="/v1/assets/images/favicons/favicon.svg" type="image/svg+xml" />
+    <link type="text/css" rel="stylesheet" href="/v1/assets/css/default.css" />
+    <title>{{title}}</title>
+</head>
+
+<body class="flexy">
+    
+    <dialog role="alertdialog" aria-labelledby="idOfLabelingText" class="flexy">
+        <form method="dialog" class="flexy">
+            <button type="submit" aria-label="close" formmethod="dialog" formnovalidate="formnovalidate" autofocus="autofocus">Close</button>
+        </form>
+        <p>Try closing this dialog using <kbd>Esc</kbd>&period;</p>
+    </dialog>
+    <header class="flexy">
+        <nav class="flexy heading">
+            <span id="hamburgerX" class="hamburger">☰</span>
+            <ul id="navBar" class="flexy nav-bar">
+                <!-- Menu will populate here -->
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content" class="flexy">
+        <hgroup class="flexy">
+            <h1>{{heading}}</h1>
+            <p>{{paragraph}}</p>
+        </hgroup>
+        {{{body}}}
+    </main>
+    <div id="appMessages" role="alert"></div>
+    <footer class="flexy">
+        <hgroup class="flexy">
+            <h2>Have questions&quest;</h2>
+            <p>Do you have specific questions? Check out our <a href="/v1/help">help page</a> for the most frequently asked questions or <a href="/v1/contact">contact us here</a>&period;</p>
+        </hgroup>
+        <div class="flexy">
+            <p>Like what you read&quest; Subscribe to our <a href="/v1/rss">RSS feed</a>&period;</p>
+        </div>
+        <p id="instructions">
+  Press "h" to toggle a help screen (select example window first).
+</p>
+        <button popovertarget="mypopover">Open Popover</button>
+        <div id="mypopover" popover>
+  <p>I am a popover with more information. Hit <kbd>esc</kbd> or click away to close me.<p>
+</div>
+        {{> "cookies"}}
+    </footer>
+</body>
+
+</html>

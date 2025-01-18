@@ -15,7 +15,7 @@ import {
 
 const router = express.Router();
 
-// existing users
+// dummy database
 const users = [
     {
         email: "sabuein@gmail.com",
@@ -133,6 +133,13 @@ router.get("/", (req, res) => {
     res.status(200).json(results);
 });
 
+router.get("/:from-:to", function (req, res) {
+    var from = req.params.from;
+    var to = req.params.to;
+    var names = users.map(function(user){ return user.name; });
+    res.send('users ' + names.slice(from, to + 1).join(', '));
+  });
+  
 /** Get a single user. */
 router.get("/:userId", (req, res) => {
     const userId = req.params.userId;

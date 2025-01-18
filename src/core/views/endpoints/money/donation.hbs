@@ -1,0 +1,11 @@
+<h1 class="text-white text-5xl">{{title}}</h1>
+<div class="flex justify-center mt-32">
+    <form action="/api/money/donate" method="post" enctype="application/x-www-form-urlencoded">
+        <label for="myName">Full name&colon;<input type="text" id="myName" name="name" placeholder="Full name" autocomplete="name" /></label>
+        <label for="myEmail">Email&colon;<input type="email" name="email" id="myEmail" placeholder="Email address" autocomplete="email" /></label>
+        <label for="myAmount">Amount&colon;<input type="text" name="amount" id="myAmount" placeholder="Amount in GBP" /></label>
+        <div id="card-element"></div>
+        <div id="card-errors" role="alert"></div>
+        <input type="submit" value="Donate now" />
+    </form>
+</div>

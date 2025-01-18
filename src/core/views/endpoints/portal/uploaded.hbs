@@ -1,0 +1,12 @@
+<!-- uploaded.hbs -->
+<hgroup class="flexy">
+    <h1>{{heading}}</h1>
+    <p>{{subheading}}</p>
+</hgroup>
+{{#if user}}<p>Mabrouk habibi, {{user.firstName}}! The uploaded file details are below&colon;</p>{{/if}}
+{{#if file}}<div>
+    <p><span>Filename&colon;</span><span>{{file.filename}}</span></p>
+    <p><span>Size&colon;</span><span>{{file.size}}</span></p>
+    <a href="assets/files/{{file.filename}}" target="_blank">{{file.filename}}</a>
+</div>{{/if}}
+<a href="/v1/admin/upload" title="Click to go back">Go back</a>

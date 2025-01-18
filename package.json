@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node --watch-path=./src/core ./src/server.mjs",
     "startX": "pm2 start ./src/server.mjs --name abuein",
+    "stripe-hook": "stripe listen --forward-to localhost:3210/v1/money/webhook",
+    "stripe-sample": "stripe samples create accept-a-payment",
     "doc": "./node_modules/.bin/jsdoc ./src -c ./package-docs.json -r --destination ./docs",
     "debugging": "node --inspect ./src/server.mjs",
     "link": "ln -s /home/sabuein/my/var/www/api-gateway/uploads /home/sabuein/my/var/www/api-gateway/src/core/static/v1/assets/files",
@@ -42,6 +44,8 @@
     "express-rate-limit": "^7.4.1",
     "express-session": "^1.18.1",
     "express-validator": "^7.2.0",
+    "firebase": "^11.1.0",
+    "firebase-admin": "^13.0.2",
     "helmet": "^8.0.0",
     "http": "^0.0.1-security",
     "http-proxy-middleware": "^3.0.3",
@@ -52,7 +56,9 @@
     "multer": "^1.4.5-lts.1",
     "paseto": "^3.1.4",
     "path": "^0.12.7",
+    "stripe": "^17.5.0",
     "uuid": "^11.0.3",
+    "web-push": "^3.6.7",
     "winston": "^3.17.0"
   },
   "devDependencies": {

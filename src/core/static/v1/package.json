@@ -1,0 +1,38 @@
+{
+    "author": {
+        "name": "Salaheddin AbuEin",
+        "email": "sabuein@gmail.com",
+        "url": "https://app.abuein.com/salaheddin"
+    },
+    "name": "abuein-pwa",
+  "version": "1.0.0",
+  "description": "PWA for AbuEin Web Portal",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabuein/api-gateway.git"
+  },
+  "homepage": "https://github.com/sabuein/api-gateway#readme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sabuein/api-gateway/issues"
+  },
+  "engines": {
+    "npm": ">=10.9.0",
+    "node": ">=22.11.0"
+  },
+  "dependencies": {
+    "firebase": "^13.29.1"
+  },
+    "scripts": {
+        "start": "node --watch-path=../ ../../server.mjs",
+        "link": "sudo ln -s /home/sabuein/my/var/www/api-gateway/src/core/static /var/www/html",
+        "link-ls": "sudo find /var/www/html/ -maxdepth 1 -type l",
+        "link-rm": "sudo find /var/www/html/ -maxdepth 1 -type l -delete",
+        "nginx": "sudo cp ./assets/labs/app.conf /etc/nginx/conf.d/app.conf -i",
+        "nginx-te": "sudo nginx -t",
+        "nginx-re": "sudo systemctl reload nginx",
+        "nginx-he": "curl -X OPTIONS -H \"Origin: https://google.com\" -H \"Access-Control-Request-Method: GET\" https://app.abuein.com -i",
+        "nginx-de": "sudo tail -f /var/log/nginx/error.log /var/log/nginx/access.log",
+        "ssl": "sudo mkcert app.abuein.com localhost 127.0.0.1 ::1"
+    }
+}

@@ -2,7 +2,7 @@
 
 // /src/core/middlewares/authentication.mjs
 import { access, verify } from "../utilities/security.mjs";
-import { cookieOptions } from "../configuration/storage.mjs";
+import { cookieOptions } from "../configuration/options.mjs";
 import { V3 } from "paseto"; // { sign, verify, encrypt, decrypt, generateKey }
 
 const basicAuthUsers = [{ username: "sabuein", password: "0123456789" }];
