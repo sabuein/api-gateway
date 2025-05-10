@@ -48,7 +48,7 @@
     "firebase-admin": "^13.0.2",
     "helmet": "^8.0.0",
     "http": "^0.0.1-security",
-    "http-proxy-middleware": "^3.0.3",
+    "http-proxy-middleware": "^3.0.5",
     "https": "^1.0.0",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
